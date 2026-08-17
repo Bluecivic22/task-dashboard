@@ -21,9 +21,12 @@
   "scripts": {
     "start": "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000",
     "start:hydrated": "VITE_ENABLE_DATA_HYDRATION=true BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000",
+    "start:gateway": "VITE_APP_MODE=gateway VITE_GATEWAY_DEMO=true BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000",
     "build": "vite build",
     "build:hydrated": "VITE_ENABLE_DATA_HYDRATION=true vite build",
     "build:clean": "VITE_ENABLE_DATA_HYDRATION=false vite build",
+    "build:gateway": "VITE_APP_MODE=gateway VITE_GATEWAY_DEMO=false vite build",
+    "build:gateway:demo": "VITE_APP_MODE=gateway VITE_GATEWAY_DEMO=true vite build",
     "preview": "vite preview",
     "preview:hydrated": "VITE_ENABLE_DATA_HYDRATION=true vite preview",
     "test": "vitest run",
