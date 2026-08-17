@@ -8,8 +8,14 @@ import { ListProvider } from './context/ListContext';
 
 import GlobalTaskForm from './features/tasks/components/GlobalTaskForm';
 import TaskBoard from './features/lists/components/TaskBoard';
+import GatewayApp from './features/gateway/GatewayApp';
 
-function App() {
+/* Switch between apps using the VITE_APP_MODE env variable.
+   Set VITE_APP_MODE=gateway to load the ESP32 gateway dashboard.
+   Default (unset / 'tasks') loads the original Task Dashboard. */
+const APP_MODE = import.meta.env.VITE_APP_MODE ?? 'tasks';
+
+function TaskDashboard() {
   const [showInput, setShowInput] = useState(false);
 
   return (
@@ -27,7 +33,6 @@ function App() {
               >
                 <div className="flex justify-between items-center mb-6">
                   <h1 className="text-3xl font-bold text-neutral-800 tracking-tight">Task Dashboard</h1>
-                  {/* Stats will be displayed from TaskContext */}
                 </div>
                 
                 <AnimatePresence>
@@ -57,7 +62,6 @@ function App() {
                 </AnimatePresence>
               </motion.div>
               
-              {/* The TaskBoard component now manages all task lists */}
               <TaskBoard />
             </div>
           </div>
@@ -65,6 +69,13 @@ function App() {
       </TagProvider>
     </TaskProvider>
   );
+}
+
+function App() {
+  if (APP_MODE === 'gateway') {
+    return <GatewayApp />;
+  }
+  return <TaskDashboard />;
 }
 
 export default App;
