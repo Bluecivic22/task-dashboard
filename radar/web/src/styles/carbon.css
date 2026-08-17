@@ -1,0 +1,116 @@
+/* Forged carbon fiber background */
+.carbon-bg {
+  background-color: #0a0a0a;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    );
+}
+
+/* Gold accent colors */
+:root {
+  --gold: #c9a84c;
+  --gold-bright: #e8c96a;
+  --gold-dim: #8a6f32;
+  --gold-glow: rgba(201, 168, 76, 0.3);
+  --carbon-dark: #0a0a0a;
+  --carbon-mid: #141414;
+  --carbon-panel: #1a1a1a;
+  --carbon-surface: #202020;
+  --carbon-border: #2a2a2a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #888888;
+  --text-gold: #c9a84c;
+  --status-normal: #4a9e6b;
+  --status-activity: #e8c96a;
+  --status-presence: #c9a84c;
+  --status-high: #e87a3a;
+  --status-error: #cc4444;
+  --status-unknown: #666666;
+  --status-environmental: #6699cc;
+}
+
+.carbon-panel {
+  background: var(--carbon-panel);
+  border: 1px solid var(--gold-dim);
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.1),
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 4px 16px rgba(0,0,0,0.6);
+  border-radius: 4px;
+}
+
+.carbon-panel-inner {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%),
+    var(--carbon-surface);
+}
+
+.gold-border {
+  border-color: var(--gold);
+}
+
+.gold-text { color: var(--gold); }
+.gold-bright-text { color: var(--gold-bright); }
+
+.btn-carbon {
+  background: var(--carbon-surface);
+  border: 1px solid var(--gold-dim);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.btn-carbon:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 8px var(--gold-glow);
+}
+
+.btn-carbon:active {
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-normal { background: var(--status-normal); box-shadow: 0 0 4px var(--status-normal); }
+.status-activity { background: var(--status-activity); box-shadow: 0 0 4px var(--status-activity); }
+.status-presence { background: var(--status-presence); box-shadow: 0 0 8px var(--status-presence); }
+.status-error { background: var(--status-error); box-shadow: 0 0 4px var(--status-error); }
+
+.instrumentation-value {
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  text-shadow: 0 0 10px var(--gold-glow);
+}
+
+.instrumentation-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
